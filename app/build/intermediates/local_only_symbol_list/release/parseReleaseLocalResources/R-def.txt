@@ -1,0 +1,30 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color purple_500
+color yellow_snap
+dimen grid_item_size
+dimen spacing_small
+id cancelButton
+id check
+id filterAll
+id filterAudio
+id filterPhotos
+id filterVideos
+id grid
+id helpButton
+id processingOverlay
+id progressBar
+id progressStatus
+id searchBox
+id sendFab
+id settingsButton
+id streakCounter
+id thumbnail
+id titleText
+id typeLabel
+layout activity_main
+layout gallery_item
+string app_name
+style Theme.MaterialComponents.DayNight.DarkActionBar
+xml file_paths

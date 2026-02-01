@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.yourname.gallerytosnapstreak.app-mergeReleaseResources-30:/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/home/codespace/.gradle/caches/9.2.1/transforms/aefc8ffee21b6b23271fa3e9daf4145d/transformed/appcompat-1.6.1/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    }
+                }
+            ]
+        }
+    ]
+}

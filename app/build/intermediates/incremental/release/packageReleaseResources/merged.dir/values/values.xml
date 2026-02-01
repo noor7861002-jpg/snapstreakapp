@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="yellow_snap">#FFFC00</color>
+    <dimen name="grid_item_size">120dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <string name="app_name">Gallery to Snap Streak</string>
+    <style name="Theme.MaterialComponents.DayNight.DarkActionBar" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        
+    </style>
+</resources>

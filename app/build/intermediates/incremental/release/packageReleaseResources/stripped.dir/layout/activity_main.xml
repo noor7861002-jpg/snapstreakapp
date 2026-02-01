@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📸 Gallery to Snap Streak"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/filterAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All" />
+
+            <Button
+                android:id="@+id/filterPhotos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Photos"
+                android:layout_marginStart="8dp" />
+
+            <Button
+                android:id="@+id/filterVideos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Videos"
+                android:layout_marginStart="8dp" />
+
+            <Button
+                android:id="@+id/filterAudio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Audio"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/searchBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search"
+            android:layout_marginTop="8dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/grid"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingTop="8dp" />
+
+        <TextView
+            android:id="@+id/streakCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Streak Counter: 🔥 0"
+            android:layout_marginTop="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/settingsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Settings" />
+
+            <Button
+                android:id="@+id/helpButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Help"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/sendFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@android:drawable/ic_menu_send"
+        android:contentDescription="Send to Snapchat"
+        android:layout_gravity="bottom|end" />
+
+    <!-- Overlay for processing -->
+    <FrameLayout
+        android:id="@+id/processingOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="#80000000">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:background="@android:color/white"
+            android:layout_gravity="center">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/progressStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Preparing..."
+                android:layout_marginTop="12dp" />
+
+            <Button
+                android:id="@+id/cancelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:layout_marginTop="12dp" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,4 @@
+#Sun Feb 01 22:37:24 UTC 2026
+base.0=/workspaces/snapstreakapp/app/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

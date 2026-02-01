@@ -25,7 +25,8 @@ import androidx.exifinterface.media.ExifInterface
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.arthenica.mobileffmpeg.FFmpeg
+import android.text.Editable
+import androidx.core.widget.doAfterTextChanged
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -76,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.filterPhotos).setOnClickListener { applyFilter("image/") }
         findViewById<Button>(R.id.filterVideos).setOnClickListener { applyFilter("video/") }
         findViewById<Button>(R.id.filterAudio).setOnClickListener { applyFilter("audio/") }
-        findViewById<EditText>(R.id.searchBox).addTextChangedListener { s ->
+        findViewById<EditText>(R.id.searchBox).doAfterTextChanged { s: Editable? ->
             val q = s?.toString() ?: ""
             applySearch(q)
         }
@@ -228,23 +229,8 @@ class MainActivity : AppCompatActivity() {
                 }
                 outFiles.add(tmp)
             } else if (mime.startsWith("video/")) {
-                // Transcode video to H.264/AAC MP4 using FFmpeg if needed
-                val out = File(cacheDir, "gts_${System.currentTimeMillis()}_$idx.mp4")
-                try {
-                    // Simple transcode; if already mp4 with acceptable codecs, could skip
-                    val cmd = arrayOf("-y", "-i", tmp.absolutePath, "-c:v", "libx264", "-preset", "veryfast", "-crf", "23", "-c:a", "aac", "-b:a", "128k", out.absolutePath)
-                    val rc = FFmpeg.execute(cmd)
-                    if (rc == 0 && out.exists()) {
-                        outFiles.add(out)
-                        tmp.delete()
-                    } else {
-                        Log.w(TAG, "ffmpeg rc=$rc, using original file")
-                        outFiles.add(tmp)
-                    }
-                } catch (e: Exception) {
-                    Log.w(TAG, "ffmpeg failed", e)
-                    outFiles.add(tmp)
-                }
+                // For this build we skip FFmpeg transcoding and use the copied file directly.
+                outFiles.add(tmp)
             } else {
                 // audio or fallback
                 outFiles.add(tmp)

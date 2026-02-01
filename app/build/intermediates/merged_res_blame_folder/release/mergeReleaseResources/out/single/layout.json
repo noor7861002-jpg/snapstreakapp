@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.yourname.gallerytosnapstreak.app-mergeReleaseResources-31:/layout/activity_main.xml",
+        "source": "com.yourname.gallerytosnapstreak.app-main-33:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.yourname.gallerytosnapstreak.app-mergeReleaseResources-31:/layout/gallery_item.xml",
+        "source": "com.yourname.gallerytosnapstreak.app-main-33:/layout/gallery_item.xml"
+    }
+]

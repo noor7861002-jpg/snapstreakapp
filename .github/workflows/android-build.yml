@@ -38,10 +38,18 @@ jobs:
             mv "$SDK_ROOT/cmdline-tools"/tools "$SDK_ROOT/cmdline-tools/latest" || true
           fi
           export PATH="$SDK_ROOT/cmdline-tools/latest/bin:$SDK_ROOT/platform-tools:$PATH"
+          set -x
           yes | sdkmanager --sdk_root="$SDK_ROOT" "platform-tools" "platforms;android-34" "build-tools;34.0.0" "platforms;android-24"
           yes | sdkmanager --licenses --sdk_root="$SDK_ROOT"
           echo "sdk.dir=$SDK_ROOT" > local.properties
           ls -la "$SDK_ROOT"
+
+      - name: Install Gradle CLI
+        run: |
+          set -e
+          sudo apt-get update -y
+          sudo apt-get install -y gradle
+          gradle --version
 
       - name: Prepare ephemeral keystore (if none provided)
         id: keystore

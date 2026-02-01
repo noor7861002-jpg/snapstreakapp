@@ -29,14 +29,14 @@ android {
     signingConfigs {
         create("release") {
             // Use environment variables if set (recommended for CI)
-            val keystorePath = System.getenv("KEYSTORE_PATH") ?: "release-keystore.jks"
-            val keystorePassword = System.getenv("KEYSTORE_PASSWORD") ?: "password"
-            val keyAlias = System.getenv("KEY_ALIAS") ?: "upload"
-            val keyPassword = System.getenv("KEY_PASSWORD") ?: keystorePassword
+            def keystorePath = System.getenv("KEYSTORE_PATH") ?: "release-keystore.jks"
+            def keystorePassword = System.getenv("KEYSTORE_PASSWORD") ?: "password"
+            def keyAliasVal = System.getenv("KEY_ALIAS") ?: "upload"
+            def keyPasswordVal = System.getenv("KEY_PASSWORD") ?: keystorePassword
             storeFile = file(keystorePath)
             storePassword = keystorePassword
-            keyAlias = keyAlias
-            keyPassword = keyPassword
+            keyAlias = keyAliasVal
+            keyPassword = keyPasswordVal
         }
     }
 
@@ -61,10 +61,9 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.exifinterface:exifinterface:1.3.6'
     implementation 'io.coil-kt:coil:2.5.0'
-    implementation 'com.arthenica:mobile-ffmpeg-full:4.4.LTS'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
-    // Optional: Snapchat Creative Kit SDK (free). Can be removed if not used.
-    implementation 'com.snapchat.kit.sdk:creative:1.14.0'
+    // Removed heavy dependencies (FFmpeg, Snapchat SDK) to allow builds in this environment.
+    // Video processing will use platform tools; sharing uses Intent fallback.
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
